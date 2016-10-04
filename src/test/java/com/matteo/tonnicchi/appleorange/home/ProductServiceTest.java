@@ -17,19 +17,23 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.matteo.tonnicchi.appleorange.home.calculationstrategy.CalculationStrategyHelper.StrategyCode;
+
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
 	private static final String APPLE_CODE = "apple";
 	private static final String APPLE_NAME = "Apple";
 	private static final BigDecimal APPLE_PRICE = BigDecimal.valueOf(5);
+	private static final StrategyCode APPLE_STRATEGY = StrategyCode.SUM;
 
 	private static final String ORANGE_CODE = "orange";
 	private static final String ORANGE_NAME = "Orange";
 	private static final BigDecimal ORANGE_PRICE = BigDecimal.valueOf(7);
+	private static final StrategyCode ORANGE_STRATEGY = StrategyCode.SUM;
 	
-	private static final Product APPLE_MOCK = new Product(APPLE_CODE, APPLE_NAME, APPLE_PRICE);
-	private static final Product ORANGE_MOCK = new Product(ORANGE_CODE, ORANGE_NAME, ORANGE_PRICE);
+	private static final Product APPLE_MOCK = new Product(APPLE_CODE, APPLE_NAME, APPLE_PRICE, APPLE_STRATEGY);
+	private static final Product ORANGE_MOCK = new Product(ORANGE_CODE, ORANGE_NAME, ORANGE_PRICE, ORANGE_STRATEGY);
 	
 	@InjectMocks
 	private ProductService productService = new ProductService();

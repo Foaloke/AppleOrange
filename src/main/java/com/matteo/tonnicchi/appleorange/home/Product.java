@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.matteo.tonnicchi.appleorange.home.calculationstrategy.CalculationStrategyHelper.StrategyCode;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "product")
@@ -23,15 +25,18 @@ public class Product implements java.io.Serializable {
 	private String code;
 
 	private BigDecimal price;
+	
+	private StrategyCode strategyCode;
 
 	protected Product() {
 	}
 
-	public Product(String code, String name, BigDecimal price) {
+	public Product(String code, String name, BigDecimal price, StrategyCode strategyCode) {
 		super();
 		this.name = name;
 		this.code = code;
 		this.price = price;
+		this.strategyCode = strategyCode;
 	}
 
 	public String getName() {
@@ -60,6 +65,14 @@ public class Product implements java.io.Serializable {
 
 	public Long getId() {
 		return id;
+	}
+
+	public StrategyCode getStrategyCode() {
+		return strategyCode;
+	}
+
+	public void setStrategyCode(StrategyCode strategyCode) {
+		this.strategyCode = strategyCode;
 	}
 
 }
